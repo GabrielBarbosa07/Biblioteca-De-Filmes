@@ -1,12 +1,12 @@
 import React from 'react'
 import { Navbar } from './components/common/Navbar'
-
+import { Home } from './components/pages/Home'
 
 export const App = () => {
     return (
         <div className='App'>
-            <Navbar/>
-            <h2>Movies Lib</h2>
+            <Navbar />
+            <Home />
         </div>
     )
 }
