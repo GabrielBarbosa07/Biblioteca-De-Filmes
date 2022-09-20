@@ -18,14 +18,81 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-yellow);
+  text-align:center;
+  color: black;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 5px 10px;
+  border-radius: 12px;
   transition: 0.5s;
+  background-color: #f7d354;
 }
 
 a:hover {
   color: var(--color-darkYellow);
 }
 
-.grid{
-    display: grid;
+.grid {
+  display: grid;
+}
+.container .title{
+  text-align: center;
+}
+.movies-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: black;
+  width: 370px;
+  cursor: pointer;
+  margin: 20px;
+  
+}
+
+.card .text{
+margin: 12px 0;
+}
+.card .image img {
+  width: 100%;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  min-height: 80vh;
+}
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+}
+
+.card-details .image {
+  height:auto;
+  margin-bottom: 20px;
+}
+
+.card-details .image img {
+  margin: 0;
+  width: 100%;
+}
+button{
+  border:none;
+  outline:transparent;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background-color: black;
+  color: #b8930c;
+  font-weight: bold;
+  font-size: 1.4rem;
 }

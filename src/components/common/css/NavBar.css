@@ -18,8 +18,8 @@
 }
 
 #navbar input{
-    padding: .2rem .8rem;
-    border-radius: 4px;
+    padding: .5rem .8rem;
+    border-radius: 10px;
     border: none;
     outline: none;
 }
