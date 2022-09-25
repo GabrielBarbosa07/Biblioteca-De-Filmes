@@ -14,11 +14,10 @@ export const Home = () => {
       <Navbar />
       <div className="content">
 
-        {movies.length === 0 ?
-          <h1 className='title'>Nenhum Filme Popular Encontrado</h1>
+        {movies.length === 0 ? <h1 className='title'>Nenhum Filme Encontrado!</h1>
           :
           <>
-            <h1 className='title'>Filme Populares </h1>
+            <h1 className='title'>Filmes TMDB </h1>
             <ul className='ul-style'>
               {movies.map((movie) => (
 

@@ -25,8 +25,9 @@ body {
 
 .title {
   text-align: center;
-  margin: 3rem 0;
+  margin: 3rem 0 4rem 0;
   font-weight: bolder;
+  color: #f7d354;
 }
 
 .ul-style {
@@ -38,6 +39,7 @@ body {
 }
 .li-style {
   max-height: 650px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,8 +83,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: .5rem;
- 
+  margin-top: 0.5rem;
 }
 .card-details {
   display: flex;
@@ -93,7 +94,7 @@ body {
   height: auto;
 }
 
-.card-details .text .description{
+.card-details .text .description {
   text-align: justify;
 }
 .card-details .text h2 {
@@ -110,7 +111,7 @@ body {
   width: 100%;
   border-radius: 1rem;
 }
-.release{
+.release {
   color: gray;
 }
 button {
@@ -133,11 +134,16 @@ button {
   color: black;
   font-weight: bold;
   font-size: 1.4rem;
-  transition: .3s all;
+  transition: 0.3s all;
 }
-button > a:hover{
-opacity: .8;
-color: black;
+button > a:hover {
+  opacity: 0.8;
+  color: black;
+}
+@media (max-width: 830px) {
+  .li-style {
+    max-width: 700px;
+  }
 }
 @media (max-width: 576px) {
   .content {

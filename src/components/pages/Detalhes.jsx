@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
+import Loading from "../common/Loading/LoadingSpinner"
 import { BiCameraMovie } from 'react-icons/bi'
 import { Link, useParams } from 'react-router-dom'
 
@@ -28,7 +28,7 @@ export default function Detalhes() {
             </nav>
 
             <div className='details'>
-                {movie.length === 0 && <h1>Carregando...</h1>}
+                {movie.length === 0 && <Loading/>}
 
                 <div className="card-details" key={movie.id}>
 
