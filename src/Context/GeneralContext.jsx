@@ -12,7 +12,7 @@ export function GeralContext({ children }) {
             .then(res => res.json())
             .then(data => setMovies(data.results))
             .catch(err => {
-                console.error(err)
+                console.error("Ocorreu um erro " + err)
             })
     }, [search]);
 

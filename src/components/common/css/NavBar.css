@@ -8,7 +8,7 @@
 #navbar h2 {
   background-color: #f7d354;
   border-radius: 1rem;
-  padding: 1px 11px;
+  padding: 1px 11px 4px 8px;
 }
 #navbar h2 a {
   display: flex;
@@ -31,6 +31,9 @@
 @media (max-width: 576px) {
   #root {
     text-align: center;
+  }
+  body{
+   overflow-x: hidden;
   }
   #navbar {
     flex-direction: column;

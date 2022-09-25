@@ -19,7 +19,7 @@ body {
   min-width: 499px;
 }
 
-.content{
+.content {
   padding: 0 1rem;
 }
 
@@ -32,16 +32,18 @@ body {
 .ul-style {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   column-gap: 3rem;
   row-gap: 4rem;
 }
 .li-style {
+  max-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .li-style img {
+  height: 70%;
   width: 70%;
   border-radius: 1rem;
   transition: all 0.3s;
@@ -60,7 +62,7 @@ body {
 }
 .li-style a {
   width: 70%;
-  background-color: #f7d354;
+  background-color: var(--color-yellow);
   color: black;
   font-weight: bold;
   font-size: 1.5rem;
@@ -79,25 +81,37 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  min-height: 80vh;
+  margin-top: .5rem;
+ 
 }
 .card-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: 300px;
+  height: auto;
+}
+
+.card-details .text .description{
+  text-align: justify;
+}
+.card-details .text h2 {
+  font-weight: bold;
+  color: var(--color-yellow);
 }
 
 .card-details .image {
-  height: auto;
   margin-bottom: 20px;
 }
 
 .card-details .image img {
   margin: 0;
   width: 100%;
+  border-radius: 1rem;
+}
+.release{
+  color: gray;
 }
 button {
   border: none;
@@ -105,12 +119,28 @@ button {
   padding: 5px 10px;
   border-radius: 12px;
   background-color: black;
-  color: #b8930c;
+  color: var(--color-darkYellow);
   font-weight: bold;
   font-size: 1.4rem;
 }
-@media (max-width:576px) {
-  .content{
+.details button > a {
+  border: none;
+  text-decoration: none;
+  outline: transparent;
+  padding: 5px 7.5rem;
+  border-radius: 12px;
+  background-color: var(--color-yellow);
+  color: black;
+  font-weight: bold;
+  font-size: 1.4rem;
+  transition: .3s all;
+}
+button > a:hover{
+opacity: .8;
+color: black;
+}
+@media (max-width: 576px) {
+  .content {
     padding: 0;
-  }  
+  }
 }

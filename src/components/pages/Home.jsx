@@ -13,16 +13,27 @@ export const Home = () => {
     <>
       <Navbar />
       <div className="content">
-        <h1 className='title'>Filmes Populares</h1>
-        <ul className='ul-style'>
-          {movies.map((movie) => (
-            <li className='li-style' key={movie.id}>
-              {!movie.poster_path ? <h2>Imagem Indisponivel</h2> : <img src={`${imgPath}${movie.poster_path}`} alt={movie.title} />}
-              <span>{movie.title}</span>
-              <Link to={`/movie/${movie.id}`}>Detalhes</Link>
-            </li>
-          ))}
-        </ul>
+
+        {movies.length === 0 ?
+          <h1 className='title'>Nenhum Filme Popular Encontrado</h1>
+          :
+          <>
+            <h1 className='title'>Filme Populares </h1>
+            <ul className='ul-style'>
+              {movies.map((movie) => (
+
+                <li className='li-style' key={movie.id}>
+
+                  {!movie.poster_path ?
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" alt={movie.title} /> :
+                    <img src={`${imgPath}${movie.poster_path}`} alt={movie.title} />}
+                  <span>{movie.title}</span>
+                  <Link to={`/detalhes/${movie.id}`}>Detalhes</Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        }
 
       </div>
     </>
