@@ -2,8 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Deploy
-<a href="https://biblioteca-de-filmes.netlify.app/" target="_blank">Biblioteca De Filmes</a>
 
 ## Available Scripts
 
