@@ -4,6 +4,7 @@
   align-items: center;
   padding: 1rem 2rem;
   background-color: black;
+  width: 100%;
 }
 #navbar h2 {
   background-color: #f7d354;
@@ -29,14 +30,10 @@
   outline: none;
 }
 @media (max-width: 576px) {
-  #root {
-    text-align: center;
-  }
-  body{
-   overflow-x: hidden;
-  }
   #navbar {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
   }
   #navbar h2 {

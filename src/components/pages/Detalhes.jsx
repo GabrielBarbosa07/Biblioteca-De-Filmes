@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Loading from "../common/Loading/LoadingSpinner"
 import { BiCameraMovie } from 'react-icons/bi'
 import { Link, useParams } from 'react-router-dom'
@@ -20,7 +20,7 @@ export default function Detalhes() {
     const imgPath = "https://image.tmdb.org/t/p/w500"
 
     return (
-        <>
+        <main className="main-details">
             <nav id="navbar">
                 <h2>
                     <Link to="/"><BiCameraMovie /> MoviesLib</Link>
@@ -28,7 +28,7 @@ export default function Detalhes() {
             </nav>
 
             <div className='details'>
-                {movie.length === 0 && <Loading/>}
+                {movie.length === 0 && <Loading />}
 
                 <div className="card-details" key={movie.id}>
 
@@ -41,13 +41,13 @@ export default function Detalhes() {
                             <h2>{movie.title}</h2>
                             <p>{movie.overview === "" ? "Descrição Indisponível!" : movie.overview}</p>
                         </div>
-                        <p className='release'>{movie.release_date
-                        }</p>
+                        <p className='release'>{movie.release_date}
+                        </p>
+                        <button><Link to="/">Voltar</Link></button>
                     </div>
-                    <button><Link to="/">Voltar</Link></button>
 
                 </div>
             </ div>
-        </>
+        </main>
     )
 }
