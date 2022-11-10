@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { BiCameraMovie } from "react-icons/bi"
 import { Link } from 'react-router-dom'
-import { GeneralContext } from '../../Context/GeneralContext'
+import { ApiContext } from '../../Contexts/ApiContext'
 import "./css/NavBar.css"
 
 const Navbar = () => {
-    const { setSearch, search } = useContext(GeneralContext)
+    const { setSearch, search } = useContext(ApiContext)
  
     return (
         <nav id="navbar">

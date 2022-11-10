@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './components/pages/Home'
 import Detalhes from './components/pages/Detalhes'
-import { GeralContext } from './Context/GeneralContext'
+import { GeralContext } from './Contexts/ApiContext'
 import { ParticlesBackground } from './components/common/particlesBackground/ParticlesBackground'
 
 export const App = () => {

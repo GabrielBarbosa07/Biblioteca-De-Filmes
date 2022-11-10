@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 
-export const GeneralContext = createContext([])
+export const ApiContext = createContext([])
 
 export function GeralContext({ children }) {
     const [movies, setMovies] = useState([])
@@ -17,8 +17,8 @@ export function GeralContext({ children }) {
     }, [search]);
 
     return (
-        <GeneralContext.Provider value={{ movies, setSearch, search }}>
+        <ApiContext.Provider value={{ movies, setSearch, search }}>
             {children}
-        </GeneralContext.Provider>
+        </ApiContext.Provider>
     )
 }

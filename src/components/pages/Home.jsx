@@ -1,11 +1,11 @@
 import React from 'react'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { GeneralContext } from '../../Context/GeneralContext'
+import { ApiContext } from '../../Contexts/ApiContext'
 import Navbar from "../common/Navbar"
 
 export const Home = () => {
-  const { movies } = useContext(GeneralContext)
+  const { movies } = useContext(ApiContext)
 
   const imgPath = "https://image.tmdb.org/t/p/w500"
 
