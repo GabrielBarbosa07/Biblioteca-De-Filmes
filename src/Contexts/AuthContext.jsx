@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext()
@@ -6,6 +6,14 @@ export const AuthContext = createContext()
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        const recoveredUser = localStorage.getItem("users")
+
+        if (recoveredUser) {
+            setUser(JSON.parse(recoveredUser))
+        }
+    }, [])
 
     const generateID = (users) => {
         if (users.length === 0) return 1
@@ -29,6 +37,7 @@ export const AuthProvider = ({ children }) => {
 
             localStorage.setItem("users", JSON.stringify(users))
             login(email, password)
+            navigate("/login")
             return
         }
         alert("Usuario já cadastrado!")
@@ -45,8 +54,8 @@ export const AuthProvider = ({ children }) => {
             const loggedUser = {
                 id: user.id,
                 username: user.username,
-                email,
-                password,
+                email: user.email,
+                password: user.password,
             }
 
             setUser(loggedUser)
@@ -61,7 +70,7 @@ export const AuthProvider = ({ children }) => {
     }
 
 
-    <AuthContext.Provider value={{ user, register, login, logout }}>
+    <AuthContext.Provider value={{ authenticated: !!user, user, register, login, logout }}>
         {children}
     </AuthContext.Provider>
 }

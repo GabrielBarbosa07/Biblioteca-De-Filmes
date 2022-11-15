@@ -17,11 +17,10 @@ export const LoginPage = () => {
         setPassword("")
     }
 
-
-
-
     return (
+
         <form className="form" onSubmit={handleSubmit}>
+            <h1>Ola mudo</h1>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Example label</label>
@@ -49,5 +48,6 @@ export const LoginPage = () => {
                 <Link className='sign' to="/register">Cadastrar-se</Link>
             </div>
         </form>
+
     )
 }

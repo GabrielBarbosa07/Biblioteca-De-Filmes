@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react"
 
-export const ApiContext = createContext([])
+export const ApiContext = createContext()
 
-export function GeralContext({ children }) {
+export function ApiProvider({ children }) {
     const [movies, setMovies] = useState([])
     const [search, setSearch] = useState("")
 
