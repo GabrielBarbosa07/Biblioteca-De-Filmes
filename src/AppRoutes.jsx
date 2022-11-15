@@ -29,8 +29,8 @@ export const AppRoutes = () => {
                     <Routes>
                         <Route path='/register' element={<Register />} />
                         <Route path='/login' element={<LoginPage />} />
-                        <Route path='/' element={<Home />} />
-                        <Route path='/detalhes/:id' element={<Detalhes />} />
+                        <Route path='/' element={<Private> <Home /></Private>} />
+                        <Route path='/detalhes/:id' element={<Private><Detalhes /></Private>} />
                     </Routes>
                 </AuthProvider>
             </ApiProvider>
