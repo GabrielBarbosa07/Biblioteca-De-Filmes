@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
 
@@ -18,36 +19,61 @@ export const LoginPage = () => {
     }
 
     return (
+        <section className='center'>
+            <Form onSubmit={handleSubmit} className="loginForm">
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        type="email"
+                        placeholder="Digite seu Email"
+                        required
+                        value={email}
+                        onChange={({ target }) => setEmail(target.value)} />
+                </Form.Group>
 
-        <form className="form" onSubmit={handleSubmit}>
-            <h1>Ola mudo</h1>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Senha</Form.Label>
+                    <Form.Control
+                        type="password"
+                        placeholder='Digite sua Senha'
+                        required
+                        value={password}
+                        onChange={({ target }) => setPassword(target.value)} />
+                </Form.Group>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Example label</label>
-                <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="Example input placeholder"
-                    value={email}
-                    onChange={({ target }) => setEmail(target.value)} />
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Another label</label>
-                <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="Another input placeholder"
-                    value={password}
-                    onChange={({ target }) => setPassword(target.value)} />
-            </div>
+                <Button variant="warning" className="w-100 fw-bold" type="submit">
+                    Entrar
+                </Button>
+            </Form>
+        </section>
+        // <form className="form" onSubmit={handleSubmit}>
 
-            <div className="actions">
-                <button type="submit">Entrar</button>
-                <Link className='sign' to="/register">Cadastrar-se</Link>
-            </div>
-        </form>
+        //     <div className="mb-3">
+        //         <label for="email" className="form-label">Email</label>
+        //         <input
+        //             type="email"
+        //             className="form-control"
+        //             id="email"
+        //             placeholder="Email.."
+        //             value={email}
+        //             onChange={({ target }) => setEmail(target.value)} />
+        //     </div>
+        //     <div className="mb-3">
+        //         <label for="password" className="form-label">Senha</label>
+        //         <input
+        //             type="password"
+        //             className="form-control"
+        //             id="password"
+        //             placeholder="Password.."
+        //             value={password}
+        //             onChange={({ target }) => setPassword(target.value)} />
+        //     </div>
+
+        //     <div className="actions">
+        //         <button type="submit">Entrar</button>
+        //         <Link className='sign' to="/register">Cadastrar-se</Link>
+        //     </div>
+        // </form>
 
     )
 }

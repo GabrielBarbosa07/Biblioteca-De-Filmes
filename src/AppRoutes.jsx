@@ -22,7 +22,7 @@ export const AppRoutes = () => {
 
     return (
         <BrowserRouter>
-            <ParticlesBackground />
+            {/* <ParticlesBackground /> */}
 
             <ApiProvider>
                 <AuthProvider>
