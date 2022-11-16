@@ -36,7 +36,6 @@ export const AuthProvider = ({ children }) => {
             })
 
             localStorage.setItem("users", JSON.stringify(users))
-            login(email, password)
             navigate("/login")
             return
         }

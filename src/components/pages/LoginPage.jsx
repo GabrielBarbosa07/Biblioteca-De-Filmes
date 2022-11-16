@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../Contexts/AuthContext';
 
 export const LoginPage = () => {
@@ -12,10 +11,7 @@ export const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log("submit", { email, password });
         login(email, password)
-        setEmail("")
-        setPassword("")
     }
 
     return (
@@ -41,39 +37,12 @@ export const LoginPage = () => {
                         onChange={({ target }) => setPassword(target.value)} />
                 </Form.Group>
 
-                <Button variant="warning" className="w-100 fw-bold" type="submit">
+                <Button variant="warning" className="w-100 fw-bold mb-3" type="submit">
                     Entrar
                 </Button>
+
+                <Button href='/register' variant="dark" className='w-100 fw-bold'>Cadastrar-se</Button>
             </Form>
         </section>
-        // <form className="form" onSubmit={handleSubmit}>
-
-        //     <div className="mb-3">
-        //         <label for="email" className="form-label">Email</label>
-        //         <input
-        //             type="email"
-        //             className="form-control"
-        //             id="email"
-        //             placeholder="Email.."
-        //             value={email}
-        //             onChange={({ target }) => setEmail(target.value)} />
-        //     </div>
-        //     <div className="mb-3">
-        //         <label for="password" className="form-label">Senha</label>
-        //         <input
-        //             type="password"
-        //             className="form-control"
-        //             id="password"
-        //             placeholder="Password.."
-        //             value={password}
-        //             onChange={({ target }) => setPassword(target.value)} />
-        //     </div>
-
-        //     <div className="actions">
-        //         <button type="submit">Entrar</button>
-        //         <Link className='sign' to="/register">Cadastrar-se</Link>
-        //     </div>
-        // </form>
-
     )
 }
