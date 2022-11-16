@@ -8,10 +8,13 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const recoveredUser = localStorage.getItem("users")
+        const recoveredUsers = JSON.parse(localStorage.getItem("users")) ?? []
+        
+        const lastUserCreated = recoveredUsers[recoveredUsers.length - 1]
 
-        if (recoveredUser) {
-            setUser(JSON.parse(recoveredUser))
+        if (lastUserCreated) {
+            setUser(lastUserCreated)
+            login(lastUserCreated.email, lastUserCreated.password)
         }
     }, [])
 
@@ -45,16 +48,16 @@ export const AuthProvider = ({ children }) => {
     const login = (email, password) => {
         const users = JSON.parse(localStorage.getItem("users"))
 
-        const user = users.find((user) => user.email === email && user.password === password)
+        const userExist = users.find((user) => user.email === email && user.password === password)
 
-        if (!user) {
+        if (!userExist) {
             alert("Email ou Senha incorreto!")
         } else {
             const loggedUser = {
-                id: user.id,
-                username: user.username,
-                email: user.email,
-                password: user.password,
+                id: userExist.id,
+                username: userExist.username,
+                email: userExist.email,
+                password: userExist.password,
             }
 
             setUser(loggedUser)

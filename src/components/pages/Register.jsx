@@ -13,9 +13,11 @@ export default function Register() {
     const handleRegister = (e) => {
         e.preventDefault()
 
-        if (email === "" || password === "" || password !== confirmPassword) {
-            alert("Preencha todos os campos!");
+        if (username === "" || email === "" || password === "") {
+            return alert("Preencha todos os campos!");
 
+        } else if (password !== confirmPassword) {
+            return alert("Senhas Diferentes. Tente Novamente!")
         } else {
             register(username, email, password);
         }
