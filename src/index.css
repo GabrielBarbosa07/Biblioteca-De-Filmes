@@ -35,7 +35,7 @@ body {
 
 .ul-style {
   list-style: none;
-  padding: 0 ;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   column-gap: 3rem;
@@ -83,50 +83,20 @@ body {
   transform: scale(0.9);
 }
 
-.main-details {
-  overflow-y: auto;
-}
-
-.details {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-}
-.card-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
+.main-details{
+  max-height: 100vh;
   width: 100%;
-  height: 470px;
 }
 
-.card-details .text {
-  max-width: 30rem;
+.main-details > section{
+  margin: 0 auto;
+  max-width: 50%;
 }
 
-.card-details .text .description {
-  text-align: justify;
-}
-.card-details .text h2 {
-  font-weight: bold;
-  color: var(--color-yellow);
+.main-details > section .max-w{
+  max-width: 40%;
 }
 
-.details .card-details .image {
-  height: 100%;
-}
-
-.card-details .image img {
-  width: 100%;
-  max-height: 100%;
-  border-radius: 1rem;
-}
-.release {
-  color: gray;
-}
 button {
   border: none;
   outline: transparent;
@@ -137,22 +107,7 @@ button {
   font-weight: bold;
   font-size: 1.4rem;
 }
-.details button {
-  width: 100%;
-}
-.details button > a {
-  border: none;
-  text-decoration: none;
-  outline: transparent;
-  padding: 5px 7.5rem;
-  border-radius: 12px;
-  background-color: var(--color-yellow);
-  color: black;
-  font-weight: bold;
-  font-size: 1.4rem;
-  transition: 0.3s all;
-}
-.center{
+.center {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -160,7 +115,7 @@ button {
   align-items: center;
 }
 
-.loginForm{
+.loginForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,17 +133,21 @@ button > a:hover {
   }
 }
 
+@media (max-width: 931px) {
+  .main-details > section{
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 843px) {
   .main-details {
     margin-bottom: 2rem;
     max-height: 100vh;
   }
-  .card-details {
-    flex-direction: column;
-    padding: 0 2rem;
-    align-items: center;
-    margin: 5.5rem 0;
+  .main-details > section{
+    max-width: 90%;
   }
+
 }
 
 @media (max-width: 780px) {
@@ -209,10 +168,7 @@ button > a:hover {
     flex: 1;
     padding: 0 1.7rem;
   }
-  .card-details .text {
+  .main-details > section .max-w{
     max-width: 100%;
-  }
-  .card-details .text button {
-    max-width: 4rem;
   }
 }
