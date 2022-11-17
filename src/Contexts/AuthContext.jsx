@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
         const userExist = users.find((user) => user.email === email && user.password === password)
 
         if (!userExist) {
-            alert("Email ou Senha incorreto!")
+            alert("Usuário não foi encontrado!")
         } else {
             const loggedUser = {
                 id: userExist.id,

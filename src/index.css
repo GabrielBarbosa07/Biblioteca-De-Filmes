@@ -25,10 +25,12 @@ body {
 }
 
 .title {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 2rem 0;
   font-weight: bolder;
-  color: #f7d354;
 }
 
 .ul-style {
