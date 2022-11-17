@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { Home } from './components/pages/Home'
-import Detalhes from './components/pages/Detalhes'
-import { ApiProvider } from './Contexts/ApiContext'
-import { ParticlesBackground } from './components/common/particlesBackground/ParticlesBackground'
-import { LoginPage } from './components/pages/LoginPage'
 import { AuthContext, AuthProvider } from './Contexts/AuthContext'
-import Register from './components/pages/Register'
+import { Home } from './pages/Home'
+import Detalhes from './pages/Detalhes'
+import Register from './pages/Register'
+import { ApiProvider } from './Contexts/ApiContext'
+import { LoginPage } from './pages/LoginPage'
+import { ParticlesBackground } from './components/common/particlesBackground/ParticlesBackground'
 
 
 export const AppRoutes = () => {

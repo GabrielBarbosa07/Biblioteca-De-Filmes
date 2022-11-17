@@ -9,12 +9,20 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const recoveredUsers = JSON.parse(localStorage.getItem("users")) ?? []
-        
+
         const lastUserCreated = recoveredUsers[recoveredUsers.length - 1]
 
         if (lastUserCreated) {
-            setUser(lastUserCreated)
-            login(lastUserCreated.email, lastUserCreated.password)
+            // eslint-disable-next-line no-restricted-globals
+            let rec = confirm(`Você deseja entrar na última conta logada?\n Usuário: ${lastUserCreated.username}`)
+
+            if (rec) {
+                login(lastUserCreated.email, lastUserCreated.password)
+                setUser(lastUserCreated)
+
+            } else {
+                return
+            }
         }
     }, [])
 

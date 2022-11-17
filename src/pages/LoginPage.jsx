@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { AuthContext } from '../../Contexts/AuthContext';
+import { AuthContext } from '../Contexts/AuthContext';
 
 export const LoginPage = () => {
     const { login } = useContext(AuthContext)

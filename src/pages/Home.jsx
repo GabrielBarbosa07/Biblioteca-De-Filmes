@@ -1,9 +1,9 @@
 import React from 'react'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { ApiContext } from '../../Contexts/ApiContext'
-import { AuthContext } from '../../Contexts/AuthContext'
-import Header from '../common/Header'
+import { ApiContext } from '../Contexts/ApiContext'
+import { AuthContext } from '../Contexts/AuthContext'
+import Header from '../components/common/Header'
 
 export const Home = () => {
   const { movies } = useContext(ApiContext)

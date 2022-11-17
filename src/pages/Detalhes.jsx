@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Loading from "../common/Loading/LoadingSpinner"
+import Loading from "../components/common/Loading/LoadingSpinner"
 import { Link, useParams } from 'react-router-dom'
-import Header from '../common/Header'
+import Header from '../components/common/Header'
 import { Card } from 'react-bootstrap'
 
 const { REACT_APP_API_KEY } = process.env
