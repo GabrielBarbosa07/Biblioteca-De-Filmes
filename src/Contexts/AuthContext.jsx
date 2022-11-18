@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
                 return
             }
         }
+        // eslint-disable-next-line
     }, [])
 
     const getUsersOnLocalStorage = () => {
@@ -55,7 +56,7 @@ export const AuthProvider = ({ children }) => {
             navigate("/login")
             return
         }
-        alert("Usuario já cadastrado!")
+        alert("Email já cadastrado!")
     }
 
     const login = (email, password) => {
@@ -64,7 +65,7 @@ export const AuthProvider = ({ children }) => {
         const userExist = users.find((user) => user.email === email && user.password === password)
 
         if (!userExist) {
-            alert("Usuário não foi encontrado!")
+            alert("Esse Email ainda não foi cadastrado!")
         } else {
             const loggedUser = {
                 id: userExist.id,
