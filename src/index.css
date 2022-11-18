@@ -16,7 +16,7 @@
 body {
   background-color: black;
   color: var(--color-white);
-  min-width: 309px;
+  min-width: 365px;
 }
 
 .content {
@@ -24,7 +24,7 @@ body {
   margin: 0 auto;
 }
 
-.exit{
+.exit {
   width: fit-content;
 }
 
@@ -87,17 +87,17 @@ body {
   transform: scale(0.9);
 }
 
-.main-details{
+.main-details {
   max-height: 100vh;
   width: 100%;
 }
 
-.main-details > section{
+.main-details > section {
   margin: 0 auto;
   max-width: 50%;
 }
 
-.main-details > section .max-w{
+.main-details > section .max-w {
   max-width: 40%;
 }
 
@@ -137,9 +137,23 @@ button > a:hover {
   }
 }
 
+@media (max-width: 1251px){
+  .main-details > #CardContainer{
+    max-width: 35%;
+  }
+  .main-details > #CardContainer .max-w {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
 @media (max-width: 931px) {
-  .main-details > section{
-    max-width: 90%;
+  .main-details > #CardContainer {
+    max-height: 15vh;
+  }
+  .main-details > #CardContainer .max-w {
+    max-width: 100%;
+    height: 100%;
   }
 }
 
@@ -148,10 +162,9 @@ button > a:hover {
     margin-bottom: 2rem;
     max-height: 100vh;
   }
-  .main-details > section{
-    max-width: 90%;
+  .main-details > #CardContainer {
+    max-width: 50%;
   }
-
 }
 
 @media (max-width: 780px) {
@@ -161,6 +174,12 @@ button > a:hover {
     align-items: center;
     flex-direction: column;
     flex: 1;
+  }
+  .main-details > #CardContainer{
+    max-width: 70%;
+  }
+  .main-details > #CardContainer .max-w {
+    max-width: 100%;
   }
 }
 
@@ -172,7 +191,7 @@ button > a:hover {
     flex: 1;
     padding: 0 1.7rem;
   }
-  .main-details > section .max-w{
-    max-width: 100%;
+  .main-details > #CardContainer{
+    max-width: 70%;
   }
 }

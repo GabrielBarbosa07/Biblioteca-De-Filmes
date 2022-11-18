@@ -8,15 +8,15 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const recoveredUsers = JSON.parse(localStorage.getItem("users")) ?? []
+        const users = getUsersOnLocalStorage()
 
-        const lastUserCreated = recoveredUsers[recoveredUsers.length - 1]
+        const lastUserCreated = users[users.length - 1]
 
         if (lastUserCreated) {
             // eslint-disable-next-line no-restricted-globals
-            let rec = confirm(`Você deseja entrar na última conta logada?\n Usuário: ${lastUserCreated.username}`)
+            let lastLogin = confirm(`Você deseja acessar a última conta logada?\nDe Email: ${lastUserCreated.email}`)
 
-            if (rec) {
+            if (lastLogin) {
                 login(lastUserCreated.email, lastUserCreated.password)
                 setUser(lastUserCreated)
 
@@ -26,6 +26,11 @@ export const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    const getUsersOnLocalStorage = () => {
+        const users = JSON.parse(localStorage.getItem("users")) ?? []
+        return users
+    }
+
     const generateID = (users) => {
         if (users.length === 0) return 1
 
@@ -34,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const register = (username, email, password) => {
-        const users = JSON.parse(localStorage.getItem("users")) ?? []
+        const users = getUsersOnLocalStorage()
 
         const user = users.find((user) => user.email === email)
 
@@ -54,7 +59,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const login = (email, password) => {
-        const users = JSON.parse(localStorage.getItem("users"))
+        const users = getUsersOnLocalStorage()
 
         const userExist = users.find((user) => user.email === email && user.password === password)
 
