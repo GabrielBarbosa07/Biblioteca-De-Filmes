@@ -112,18 +112,15 @@ button {
   font-size: 1.4rem;
 }
 .center {
-  width: 100%;
+  min-width: 500px;
+  max-width: 800px;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loginForm {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 30px;
 }
 
 button > a:hover {
@@ -137,8 +134,8 @@ button > a:hover {
   }
 }
 
-@media (max-width: 1251px){
-  .main-details > #CardContainer{
+@media (max-width: 1251px) {
+  .main-details > #CardContainer {
     max-width: 35%;
   }
   .main-details > #CardContainer .max-w {
@@ -175,7 +172,7 @@ button > a:hover {
     flex-direction: column;
     flex: 1;
   }
-  .main-details > #CardContainer{
+  .main-details > #CardContainer {
     max-width: 70%;
   }
   .main-details > #CardContainer .max-w {
@@ -191,7 +188,7 @@ button > a:hover {
     flex: 1;
     padding: 0 1.7rem;
   }
-  .main-details > #CardContainer{
+  .main-details > #CardContainer {
     max-width: 70%;
   }
 }

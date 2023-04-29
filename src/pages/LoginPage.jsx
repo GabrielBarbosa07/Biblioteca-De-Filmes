@@ -16,28 +16,21 @@ export const LoginPage = () => {
 
     return (
         <section className='center'>
-            <Form onSubmit={handleSubmit} className="loginForm">
+
+            <Form onSubmit={handleSubmit} className="w-100 ">
+                <h2 className="mb-3 fw-bold">Login</h2>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        type="email"
-                        placeholder="Digite seu Email"
-                        required
-                        value={email}
-                        onChange={({ target }) => setEmail(target.value)} />
+
+                    <Form.Control type="email" placeholder="Email" />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Senha</Form.Label>
-                    <Form.Control
-                        type="password"
-                        placeholder='Digite sua Senha'
-                        required
-                        value={password}
-                        onChange={({ target }) => setPassword(target.value)} />
+
+                    <Form.Control type="password" placeholder="Senha" />
                 </Form.Group>
 
-                <Button variant="warning" className="w-100 fw-bold mb-3" type="submit">
+                <Button className="mb-3 w-100 fw-bold" variant="primary" type="submit">
                     Entrar
                 </Button>
 
