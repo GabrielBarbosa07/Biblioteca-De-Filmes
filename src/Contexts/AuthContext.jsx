@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext()
@@ -7,25 +7,25 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        const users = getUsersOnLocalStorage()
+    // useEffect(() => {
+    //     const users = getUsersOnLocalStorage()
 
-        const lastUserCreated = users[users.length - 1]
+    //     const lastUserCreated = users[users.length - 1]
 
-        if (lastUserCreated) {
-            // eslint-disable-next-line no-restricted-globals
-            let lastLogin = confirm(`Você deseja acessar a última conta logada?\nDe Email: ${lastUserCreated.email}`)
+    //     if (lastUserCreated) {
+    //         // eslint-disable-next-line no-restricted-globals
+    //         let lastLogin = confirm(`Você deseja acessar a última conta logada?\nDe Email: ${lastUserCreated.email}`)
 
-            if (lastLogin) {
-                login(lastUserCreated.email, lastUserCreated.password)
-                setUser(lastUserCreated)
+    //         if (lastLogin) {
+    //             login(lastUserCreated.email, lastUserCreated.password)
+    //             setUser(lastUserCreated)
 
-            } else {
-                return
-            }
-        }
-        // eslint-disable-next-line
-    }, [])
+    //         } else {
+    //             return
+    //         }
+    //     }
+    //     eslint-disable-next-line
+    // }, [])
 
     const getUsersOnLocalStorage = () => {
         const users = JSON.parse(localStorage.getItem("users")) ?? []
@@ -65,7 +65,12 @@ export const AuthProvider = ({ children }) => {
         const userExist = users.find((user) => user.email === email && user.password === password)
 
         if (!userExist) {
-            alert("Esse Email ainda não foi cadastrado!")
+            alert("Usuário não cadastrado!")
+
+            // eslint-disable-next-line no-restricted-globals
+            let registerAccount = confirm("Deseja criar sua conta?")
+
+            if(registerAccount) navigate("/register")
         } else {
             const loggedUser = {
                 id: userExist.id,
