@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
+import { AuthContext } from '../Contexts/AuthContext';
+
+import { Button, Form } from 'react-bootstrap';
+
 import { useForm } from "react-hook-form"
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { Button, Form } from 'react-bootstrap';
-import { AuthContext } from '../Contexts/AuthContext';
 
 const schema = z.object({
-    email: z.string().email("Digite um email válido"),
+    email: z.string().nonempty("O email é obrigatório").email("Formato de email inválido"),
     password: z.string().min(6, "A senha precisa ter pelo menos 6 dígitos"),
 })
 
@@ -25,24 +27,22 @@ export const LoginPage = () => {
     })
 
     const handleSubmitData = (data) => {
-        console.log({ "Email": data.email, "Senha": data.password })
-
         login(data.email, data.password)
     }
 
     return (
         <section className='center'>
 
-            <Form onSubmit={handleSubmit(handleSubmitData)} className="w-100 ">
-                <h2 className="mb-3 fw-bold">Login</h2>
-                <Form.Group className="mb-3 relative" controlId="formBasicEmail">
+            <Form onSubmit={handleSubmit(handleSubmitData)} className="w-100">
+                <h1 className="mb-3 fw-bold">Login</h1>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
 
                     <Form.Control type="email" placeholder="Email"{...register("email")} />
                     {errors.email && <span className='error'>{errors.email.message}</span>}
 
                 </Form.Group>
 
-                <Form.Group className="mb-3 relative" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formBasicPassword">
 
                     <Form.Control type="password" placeholder="Senha" {...register("password")} />
                     {errors.password && <span className='error'>{errors.password.message}</span>}

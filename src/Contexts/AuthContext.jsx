@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         return lastUser.id + 1
     }
 
-    const register = (username, email, password) => {
+    const registerUser = (username, email, password) => {
         const users = getUsersOnLocalStorage()
 
         const user = users.find((user) => user.email === email)
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
             // eslint-disable-next-line no-restricted-globals
             let registerAccount = confirm("Deseja criar sua conta?")
 
-            if(registerAccount) navigate("/register")
+            if(registerAccount) navigate("/registerUser")
         } else {
             const loggedUser = {
                 id: userExist.id,
@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ authenticated: !!user, user, register, login, logout }}>
+        <AuthContext.Provider value={{ authenticated: !!user, user, registerUser, login, logout }}>
             {children}
         </AuthContext.Provider>
     )

@@ -1,73 +1,92 @@
-import { useState, useContext } from "react";
-import { Button, Form } from "react-bootstrap";
+import { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 
+import { Button, Form } from "react-bootstrap";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const schema = z.object({
+    name: z.string().nonempty("O nome é obrigatório"),
+    email: z.string().nonempty("O email é obrigatório").email("Formato de email inválido"),
+    password: z.string().min(6, "A senha precisa ter pelo menos 6 dígitos"),
+    confirmPassword: z.string()
+}).refine((fields) => fields.password
+    === fields.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "As senhas precisam ser iguais"
+})
+
 export default function Register() {
-    const { register } = useContext(AuthContext);
+    const { registerUser } = useContext(AuthContext);
 
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-
-    const handleRegister = (e) => {
-        e.preventDefault()
-
-        if (username === "" || email === "" || password === "") {
-            return alert("Preencha todos os campos!");
-
-        } else if (password !== confirmPassword) {
-            return alert("Senhas Diferentes. Tente Novamente!")
-        } else {
-            register(username, email, password);
+    const { handleSubmit, register, formState: { errors } } = useForm({
+        mode: "onChange",
+        criteriaMode: "all",
+        resolver: zodResolver(schema),
+        defaultValues: {
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: ""
         }
+    })
+
+    const handleRegisterData = (data) => {
+        registerUser(data.username, data.email, data.password);
     };
 
     return (
         <section className='center'>
-            <Form onSubmit={handleRegister} className="loginForm">
+            <Form onSubmit={handleSubmit(handleRegisterData)} className="w-100">
+                <h1 className="mb-3 fw-bold">Cadastro</h1>
+                <Form.Group className="mb-3">
 
-                <Form.Group className="mb-2" controlId="formBasicEmail">
-                    <Form.Label>Nome</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Digite seu Nome"
-                        value={username}
-                        onChange={({ target }) => setUsername(target.value)} />
+                        placeholder="Nome"
+                        {...register("name")}
+                    />
+                    {errors.name && <span className='error'>{errors.name.message}</span>}
                 </Form.Group>
 
-                <Form.Group className="mb-2" controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
+                <Form.Group className="mb-3">
+
                     <Form.Control
-                        type="email"
-                        placeholder="Digite seu Email"
-                        value={email}
-                        onChange={({ target }) => setEmail(target.value)} />
+                        type="text"
+                        placeholder="Email"
+                        {...register("email")}
+                    />
+                    {errors.email && <span className='error'>{errors.email.message}</span>}
                 </Form.Group>
 
-                <Form.Group className="mb-2" controlId="formBasicPassword">
-                    <Form.Label>Senha</Form.Label>
+                <Form.Group className="mb-3" >
+
                     <Form.Control
                         type="password"
                         placeholder='Digite sua Senha'
-                        value={password}
-                        onChange={({ target }) => setPassword(target.value)} />
+                        {...register("password")}
+                    />
+                    {errors.password && <span className='error'>{errors.password.message}</span>}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Confirme sua Senha</Form.Label>
+                <Form.Group className="mb-3" >
+
                     <Form.Control
                         type="password"
                         placeholder='Confirme sua Senha'
-                        value={confirmPassword}
-                        onChange={({ target }) => setConfirmPassword(target.value)} />
+                        {...register("confirmPassword")}
+
+                    />
+                    {errors.confirmPassword && <span className='error'>{errors.confirmPassword.types.custom}</span>}
                 </Form.Group>
 
                 <Button variant="warning" className="w-100 fw-bold mb-3" type="submit">
                     Registrar
                 </Button>
 
-                <Button href='/login' variant="dark" className='w-100 fw-bold'>Login</Button>
+                <Button href='/login' variant="dark" className='w-100 fw-bold'>Fazer Login</Button>
             </Form>
         </section>
     )
